@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  cpf: MyText
+  birth_date: 2022-08-29
+  cell: 1
+  genre: MyText
+  form_of_payment: MyText
+
+two:
+  name: MyText
+  cpf: MyText
+  birth_date: 2022-08-29
+  cell: 1
+  genre: MyText
+  form_of_payment: MyText
