@@ -1,7 +1,7 @@
 class Registration < ApplicationRecord
   belongs_to :EducationalInstitution
   belongs_to :Student
-  has_many :invoice_quantity
+  has_many :Invoice
 
   validates :amount, presence: true, numericality: { greater_than: 0 }
   validates :invoice_quantity, presence: true, numericality: { greater_than_or_equal_to: 1 }
