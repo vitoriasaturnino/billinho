@@ -8,5 +8,10 @@ Rails.application.routes.draw do
   post "student", to: "students#create"
   get "student", to: "students#index"
   get "student/:id", to: "students#show"
+
+  # Registrations Routes
+  post "registration", to: "registrations#create"
+  get "registration", to: "registrations#index"
+  get "registration/:id", to: "registrations#show"
 end
 
