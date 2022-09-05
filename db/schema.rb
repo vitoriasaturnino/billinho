@@ -17,7 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_29_201132) do
   create_table "educational_institutions", force: :cascade do |t|
     t.text "name"
     t.text "cnpj"
-    t.text "type"
+    t.text "institution_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
