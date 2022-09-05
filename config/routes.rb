@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  # Educational institutions Routes
+  post "educational_institution", to: "educational_institution#create"
+  get "educational_institution", to: "educational_institution#index"
+  get "educational_institution/:id", to: "educational_institution#show"
 end
