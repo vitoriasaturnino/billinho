@@ -3,7 +3,7 @@ class CreateEducationalInstitutions < ActiveRecord::Migration[7.0]
     create_table :educational_institutions do |t|
       t.text :name
       t.text :cnpj
-      t.text :type
+      t.text :institution_type
 
       t.timestamps
     end
