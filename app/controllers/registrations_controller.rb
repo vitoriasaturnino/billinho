@@ -1,15 +1,13 @@
 class RegistrationsController < ApplicationController
-  wrap_parameters false
-
   def create    
     registration = Registration.new(registration_params)
-    
     if registration.save
       render json: {status: 'SUCCESS', message:'Saved registration', data:registration}, status: :ok
     else
       render json: {status: 'ERROR', message:'registration not saved', data:registration.errors}, status: :unprocessable_entity
     end
   end
+
 
   def index
     registration = Registration.order('created_at DESC');
