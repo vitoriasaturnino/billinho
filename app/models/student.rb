@@ -1,5 +1,5 @@
 class Student < ApplicationRecord
-  has_many :Registrations
+  has_many :registrations
 
   validates :name, presence: true, uniqueness: true
   validates :cpf, numericality: { only_integer: true }, length: { is: 11 }, uniqueness: true 

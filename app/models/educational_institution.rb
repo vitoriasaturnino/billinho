@@ -1,5 +1,5 @@
 class EducationalInstitution < ApplicationRecord
-  has_many :Registrations
+  has_many :registrations
 
   validates :name, presence: true, uniqueness: true
   validates :cnpj, numericality: { only_integer: true }, length: { is: 14 }, uniqueness: true 

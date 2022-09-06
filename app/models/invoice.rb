@@ -1,5 +1,5 @@
 class Invoice < ApplicationRecord
-  belongs_to :Registrations
+  belongs_to :registrations
 
   validates invoice_amount, presence: true
   validates due_date, presence: true
