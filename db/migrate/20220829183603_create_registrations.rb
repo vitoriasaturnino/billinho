@@ -5,10 +5,10 @@ class CreateRegistrations < ActiveRecord::Migration[7.0]
       t.integer :invoice_quantity
       t.integer :expiration_day
       t.text :course_name
-      t.integer :educational_institution_id
-      t.integer :student_id
 
       t.timestamps
     end
+    add_reference :registrations, :educational_institution, null: false, foreign_key: true
+    add_reference :registrations, :student, null: false, foreign_key: true
   end
 end

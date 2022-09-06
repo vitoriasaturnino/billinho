@@ -4,9 +4,9 @@ class CreateInvoices < ActiveRecord::Migration[7.0]
       t.decimal :invoice_amount
       t.date :due_date
       t.text :status
-      t.integer :registration_id
 
       t.timestamps
     end
+    add_reference :invoices, :registrations, null: false, foreign_key: true
   end
 end
