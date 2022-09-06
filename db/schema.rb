@@ -36,10 +36,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_29_201132) do
     t.integer "invoice_quantity"
     t.integer "expiration_day"
     t.text "course_name"
-    t.integer "educational_institution_id"
-    t.integer "student_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "educational_institution_id", null: false
+    t.bigint "student_id", null: false
+    t.index ["educational_institution_id"], name: "index_registrations_on_educational_institution_id"
+    t.index ["student_id"], name: "index_registrations_on_student_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -53,4 +55,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_29_201132) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "registrations", "educational_institutions"
+  add_foreign_key "registrations", "students"
+  add_foreign_key "invoices", "registrations"
 end
