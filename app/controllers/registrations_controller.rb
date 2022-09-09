@@ -32,19 +32,4 @@ class RegistrationsController < ApplicationController
       :student_id
     )
   end
-
-  def create_invoices(params, registration_id)
-    amount = params[:amount] 
-    invoice_quantity = params[:invoice_quantity]
-    expiration_day = params[:expiration_day].to_date
-    invoice_amount = amount / invoice_quantity
-
-    invoice_quantity.times do |index|
-      one_day = Date.today.day + (index + 1)
-
-      due_date = expiration_day <= Date.today.day ? expiration_day + one_day : expiration_day
-
-      Invoice.new(invoice_amount: invoice_amount, due_date: due_date, registration_id: registration_id).save
-    end
-  end
 end
