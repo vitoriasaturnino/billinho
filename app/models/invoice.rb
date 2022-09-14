@@ -1,7 +1,7 @@
 class Invoice < ApplicationRecord
-  belongs_to :registrations
+  belongs_to :registration
 
   validates :invoice_amount, presence: true
   validates :due_date, presence: true
-  validates :status, presence: true, if: :valid_status?, default: 'open'
+  validates :status, presence: true, inclusion: { in: %w[open late paid] }
 end
