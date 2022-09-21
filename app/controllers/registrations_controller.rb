@@ -21,25 +21,20 @@ class RegistrationsController < ApplicationController
     render json: {status: 'SUCCESS', message:'Loaded registration', data:registration}, status: :ok
   end
 
+  # Parametros aceitos
+  private
+
   def create_invoices(registration_params, registration_id)
     expiration_day = registration_params[:expiration_day]
     invoice_quantity = registration_params[:invoice_quantity]
     invoice_amount = registration_params[:amount] / invoice_quantity
-
-    date = Time.now.to_date
-    current_day = date.day
-    
-    if expiration_day >= current_day
-      due_date = date.strftime("#{due_date}/%m/%y").to_date
-    else
-      due_date = date.next_month.strftime("#{due_date}/%m/%y").to_date
-    end
+    due_date = validate_due_date(expiration_day)
 
     if Invoice.create(invoice_amount: invoice_amount, due_date: due_date, status: "open", registration_id: registration_id).save
       invoice_index = 1
 
-      while invoice_index < invoice_quantity
-        due_date = Date.new(due_date.year, due_date.month, due_date.day).next_month(invoice_index)
+      while invoice_index <= invoice_quantity
+        due_date = Date.new(due_date.year, due_date.month, due_date.day).next_month()
         invoice_index += 1
         Invoice.create(invoice_amount: invoice_amount, due_date: due_date, status: "open", registration_id: registration_id).save
       end
@@ -47,8 +42,17 @@ class RegistrationsController < ApplicationController
     end
   end
 
-  # Parametros aceitos
-  private
+  def validate_due_date(expiration_day)
+    date = Time.now.to_date
+    current_day = date.day
+    
+    if expiration_day >= current_day
+      due_date = date.strftime("#{due_date}/%m/%y").to_date
+    else
+      due_date = date.next_month.strftime("#{due_date}/%m/%y").to_date
+    end 
+  end
+
   def registration_params
     params.permit(
       :amount,
