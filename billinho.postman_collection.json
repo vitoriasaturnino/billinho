@@ -1,0 +1,259 @@
+{
+	"info": {
+		"_postman_id": "337c49c2-8cc1-4aee-9995-b3f59fae0a21",
+		"name": "billinho",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21047250"
+	},
+	"item": [
+		{
+			"name": "educational_institution",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/educational_institution",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"educational_institution"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\" : \"Estacio\",\n  \"cnpj\" : 25673408769122, \n  \"institution_type\" : \"University\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/educational_institution",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"educational_institution"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/registration/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"registration",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "student",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/student",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"student"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/student/4",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"student",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\" : \"Joana\",\n  \"cpf\" : 87943898003,\n  \"genre\" : \"F\",\n  \"form_of_payment\" : \"card\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/student",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"student"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "registration",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/registration",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"registration"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/registration/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"registration",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"amount\": 200000.00,\n  \"invoice_quantity\": 3,\n  \"expiration_day\": 6,\n  \"course_name\": \"Medicina\",\n  \"educational_institution_id\": 2,\n  \"student_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/registration",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"registration"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "invoices",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/invoice",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"invoice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/invoice/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"invoice",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
