@@ -15,11 +15,15 @@ API for managing monthly fees using Ruby on Rails
 - [x] Creation of registrations and automatic creation of invoices
 - [ ] Soft destroy
 
+ <br />
+
 ## Índice
 
 - <a href="#getting_started">Getting Started </a>
 - <a href="#setup">Setup </a>
 - <a href="#author">Author </a>
+
+ <br />
 
 <h2 id="getting_started">🏁 Getting Started </h2>
 
@@ -31,6 +35,8 @@ These instructions will help you run the project on your local machine for devel
 - Rails 7.0.3
 - Postgresql 14.5
 
+ <br />
+ 
 <h2 id="setup">👷🏻‍♀️ Setup</h2>
 
 Clone the repository:
@@ -58,6 +64,7 @@ Start server:
 ```
 $ rails server
 ```
+ <br />
 
 <h2 id="author">👩🏻‍💻 Authors</h2>
 
