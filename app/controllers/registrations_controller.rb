@@ -33,7 +33,7 @@ class RegistrationsController < ApplicationController
     if Invoice.create(invoice_amount: invoice_amount, due_date: due_date, status: "open", registration_id: registration_id).save
       invoice_index = 1
 
-      while invoice_index <= invoice_quantity
+      while invoice_index <= invoice_quantity -1
         due_date = Date.new(due_date.year, due_date.month, due_date.day).next_month()
         invoice_index += 1
         Invoice.create(invoice_amount: invoice_amount, due_date: due_date, status: "open", registration_id: registration_id).save
@@ -47,9 +47,9 @@ class RegistrationsController < ApplicationController
     current_day = date.day
     
     if expiration_day >= current_day
-      due_date = date.strftime("#{due_date}/%m/%y").to_date
+      due_date = date.strftime("#{expiration_day}/%m/%Y").to_date
     else
-      due_date = date.next_month.strftime("#{due_date}/%m/%y").to_date
+      due_date = date.data.next_month.strftime("#{expiration_day}/%m/%Y").to_date
     end 
   end
 
