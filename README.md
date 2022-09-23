@@ -17,7 +17,7 @@ API for managing monthly fees using Ruby on Rails
 
  <br />
 
-## Índice
+## 📝 Índice
 
 - <a href="#getting_started">Getting Started </a>
 - <a href="#setup">Setup </a>
@@ -64,6 +64,7 @@ Start server:
 ```
 $ rails server
 ```
+
  <br />
 
 <h2 id="author">👩🏻‍💻 Authors</h2>
