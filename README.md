@@ -17,7 +17,7 @@ API for managing monthly fees using Ruby on Rails
 
  <br />
 
-## 📝 Índice
+## 📝 Index
 
 - <a href="#getting_started">Getting Started </a>
 - <a href="#setup">Setup </a>
