@@ -26,9 +26,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_29_201132) do
     t.decimal "invoice_amount"
     t.date "due_date"
     t.text "status"
-    t.integer "registration_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "registrations_id", null: false
+    t.index ["registrations_id"], name: "index_invoices_on_registrations_id"
   end
 
   create_table "registrations", force: :cascade do |t|
@@ -55,7 +56,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_29_201132) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "invoices", "registrations", column: "registrations_id"
   add_foreign_key "registrations", "educational_institutions"
   add_foreign_key "registrations", "students"
-  add_foreign_key "invoices", "registrations"
 end

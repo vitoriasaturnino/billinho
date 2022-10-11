@@ -1,18 +1,15 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: vitoria_moura
-  password: 000000
-  timeout: 5000
+  host: db
+  username: postgres
+  password: password
+  pool: 5
 
 development:
   <<: *default
-  database: billinho
+  database: myapp_development
+
 test:
   <<: *default
-  database: billinho
-
-production:
-  <<: *default
-  database: billinho
+  database: myapp_test
