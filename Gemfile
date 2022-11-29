@@ -12,6 +12,10 @@ gem "puma", "~> 5.0"
 # gem postgresql
 gem 'pg', '~> 1.1'
 
+# rubocop gems
+gem 'rubocop-rails', require: false
+gem 'rubocop-performance', require: false
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 
@@ -44,4 +48,8 @@ end
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+end
+
+group :development do
+  gem 'rubocop', require: false
 end
