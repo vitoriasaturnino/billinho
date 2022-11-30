@@ -14,4 +14,3 @@ Rails.application.routes.draw do
   get "invoice", to: "invoice#index"
   get "invoice/:id", to: "invoice#show"
 end
-
