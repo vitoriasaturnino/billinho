@@ -6,7 +6,8 @@ class RegistrationsController < ApplicationController
     if registration.save && create_invoices(registration_params, registration.id)
       render json: { status: 'SUCCESS', message: 'Saved registration', date: registration }, status: :ok
     else
-      render json: { status: 'ERROR', message: 'registration not saved', date: registration.errors }, status: :unprocessable_entity
+      render json: { status: 'ERROR', message: 'registration not saved', date: registration.errors },
+             status: :unprocessable_entity
     end
   end
 
@@ -28,13 +29,15 @@ class RegistrationsController < ApplicationController
     invoice_amount = registration_params[:amount] / invoice_quantity
     due_date = validate_due_date(expiration_day)
 
-    if Invoice.create(invoice_amount: invoice_amount, due_date: due_date, status: "open", registration_id: registration_id).save
+    if Invoice.create(invoice_amount: invoice_amount, due_date: due_date, status: "open",
+                      registration_id: registration_id).save
       invoice_index = 1
 
       while invoice_index <= invoice_quantity - 1
-        due_date = Date.new(due_date.year, due_date.month, due_date.day).next_month()
+        due_date = Date.new(due_date.year, due_date.month, due_date.day).next_month
         invoice_index += 1
-        Invoice.create(invoice_amount: invoice_amount, due_date: due_date, status: "open", registration_id: registration_id).save
+        Invoice.create(invoice_amount: invoice_amount, due_date: due_date, status: "open",
+                       registration_id: registration_id).save
       end
       true
     end

@@ -13,8 +13,8 @@ gem "puma", "~> 5.0"
 gem 'pg', '~> 1.1'
 
 # rubocop gems
-gem 'rubocop-rails', require: false
 gem 'rubocop-performance', require: false
+gem 'rubocop-rails', require: false
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
