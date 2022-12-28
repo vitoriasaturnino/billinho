@@ -31,12 +31,11 @@ These instructions will help you run the project on your local machine for devel
 
 ### Prerequisites
 
-- Ruby 3.1.2
-- Rails 7.0.3
-- Postgresql 14.5
+- Docker 20.10.20
+- docker-compose 1.29.2
 
  <br />
- 
+
 <h2 id="setup">👷🏻‍♀️ Setup</h2>
 
 Clone the repository:
@@ -46,23 +45,10 @@ $ git clone https://github.com/vitoriasaturnino/billinho.git
 $ cd billinho
 ```
 
-Install dependencies:
+Start application:
 
 ```
-$ bundle install
-```
-
-Database setup:
-
-```
-$ rake db:create
-$ rake db:migrate
-```
-
-Start server:
-
-```
-$ rails server
+$ docker compose up --build
 ```
 
  <br />
