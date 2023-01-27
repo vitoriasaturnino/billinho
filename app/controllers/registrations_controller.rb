@@ -32,7 +32,8 @@ class RegistrationsController < ApplicationController
       invoice_index = 1
 
       while invoice_index <= invoice_quantity - 1
-        due_date = Date.new(due_date.year, due_date.month, due_date.day).next_month
+        due_date = validate_due_date(expiration_day)
+        due_date = Date.new(due_date.year, due_date.month, due_date.day).next_month(invoice_index)
         invoice_index += 1
         Invoice.create(invoice_amount: invoice_amount, due_date: due_date, status: "open", registrations_id: registration_id).save
       end
@@ -41,13 +42,17 @@ class RegistrationsController < ApplicationController
   end
 
   def validate_due_date(expiration_day)
-    date = DateTime.now.to_date
+    date = Date.today
     current_day = date.day
+    last_day_of_month = Date.new(date.year, date.month, -1).day
 
-    if expiration_day >= current_day
+    if expiration_day >= last_day_of_month
+      # se o expiration_day for maior que a quantidade de dias no mes jogar para o o útimo dia do mes
+      date.strftime("#{last_day_of_month}/%m/%Y").to_date
+    elsif expiration_day >= current_day
       date.strftime("#{expiration_day}/%m/%Y").to_date
     else
-      date.date.next_month.strftime("#{expiration_day}/%m/%Y").to_date
+      date.next_month.strftime("#{expiration_day}/%m/%Y").to_date
     end
   end
 
