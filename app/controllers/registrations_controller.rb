@@ -25,7 +25,7 @@ class RegistrationsController < ApplicationController
   def create_invoices(registration_params, registration_id)
     expiration_day = registration_params[:expiration_day]
     invoice_quantity = registration_params[:invoice_quantity]
-    invoice_amount = registration_params[:amount] / invoice_quantity
+    invoice_amount = (registration_params[:amount] / invoice_quantity).round(2)
     due_date = validate_due_date(expiration_day)
 
     if Invoice.create(invoice_amount: invoice_amount, due_date: due_date, status: "open", registrations_id: registration_id).save
@@ -47,7 +47,6 @@ class RegistrationsController < ApplicationController
     last_day_of_month = Date.new(date.year, date.month, -1).day
 
     if expiration_day >= last_day_of_month
-      # se o expiration_day for maior que a quantidade de dias no mes jogar para o o útimo dia do mes
       date.strftime("#{last_day_of_month}/%m/%Y").to_date
     elsif expiration_day >= current_day
       date.strftime("#{expiration_day}/%m/%Y").to_date
