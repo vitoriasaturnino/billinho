@@ -2,7 +2,7 @@
 
 ## About
 
-API for managing monthly fees using Ruby on Rails
+API for managing monthly fees implemented with Ruby on Rails
 
 ![Badge](https://img.shields.io/static/v1?label=Project&message=V1.0.0&color=blue&style=for-the-badge)
 ![Badge](https://img.shields.io/static/v1?label=Ruby&message=3.1.2&color=red&style=for-the-badge&logo=ruby)
@@ -13,7 +13,13 @@ API for managing monthly fees using Ruby on Rails
 - [x] Registration of educational institutions
 - [x] Student registration
 - [x] Creation of registrations and automatic creation of invoices
+
+## Improvements
+
 - [ ] Soft destroy
+- [ ] Implement UseCase
+- [ ] Authentication via Devise
+- [ ] Implement Tests with RSpec
 
  <br />
 
