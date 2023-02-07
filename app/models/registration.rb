@@ -1,6 +1,4 @@
 class Registration < ApplicationRecord
-  require "date"
-
   belongs_to :educational_institution
   belongs_to :student
   has_many :invoice
